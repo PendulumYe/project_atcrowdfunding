@@ -1,0 +1,31 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: atguigu-crowd-pay
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  redis:
+    host: 192.168.84.131
+  session:
+    store-type: redis
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+
+ali:
+  pay:
+    # 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
+    alipay-public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9TwFy0Ok7xZgRTuGLJgW3xYEFIVI6tWDTfPhz+kTUC9Ap8NbAeM/m1s6b5/7PnBuu9oZJVZeJYnuJzZGIZRKML5DLsqykFyH1zvoxGjHA+u/s/IsrjJTOZVfl94Kea8IX/67aMX+iqgsJGvtVrpaMrGjtAqveYU1PUm0LzhbKNugRAPqIlov/gwEt3OXunb2QcTlYoSkNI8mhOqNCmNBetBJC7mKX78rnp7vRMgSmcAoIwEc/wltD4QAIuwof3M4k9yKW5tVua1PgLWk9Qo8ArieEaBS4HmIQN/gJnOWl4NqcutgwwfGtK8uJtVi5TtChiZdvpnolh3Pnz1uG0Ic4wIDAQAB
+    # 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
+    app-id: 2021000119612798
+    charset: utf-8
+    gateway-url: https://openapi.alipaydev.com/gateway.do
+    # 商户私钥，您的PKCS8格式RSA2私钥
+    merchant-private-key: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCFjrAenKntDzQjqy87mmwvtDomg32BjS4LTiNjVX0x0hWFSS2QtEq9k8/zZv9TMtU4EiWZj7cX2wPQ3CP1voczNgChYuNxCLMBKk514wYvc7EB+jXiBfa8eiX+saVoXa8qOSFVQFMsOxYHPHt8EOptU5xRf+Y51bE/qdo6opGLQ//SM2ev5q8jeBe21Ef7/APw+apYpVsW151ZMb6EhFQQ/yfzQeNYRn7tTL8KHWmn3FqePNJFMXx0rNe/otKVwpBbEpM/ZiH9UaUbDZhV5UgayP0BznMf4wZmVCRYJIWsbJPrZPkza2YrtU1bNa5aZZiOGIk7mKcCLPN5kvIbu0BZAgMBAAECggEANDcC2BT7wjiNc9x7TNwkq8nUajZCHSIq/DSCVVWY6p9t1nwzmj1CczeUt15vOAHJpnBBzvWG6YawyTknve3NQdI9ENtufESgZzY5EpG9W1PpwhImesVGH43JyPd+6Xym/OT1CTVqzwISrKWSyYB7hl6H4L0WL0pCT9eCACaKrF1JBPJrk2OqL88UdcQ0BvA2Eztch4FVImOS2XOOQJxS6pMHDcKFiHUtnimxiwm5ysWlkJLnUv6E03oPun4EX3bKwZ8pzaSJ1Rqs2MHRliouDAgXO98jqDVgmAaS3rQHU5mqZDpK1mTDDYZG39l5r/aRJQYeRggmxNSb1/USAj634QKBgQDYi4WdZX8irt2Lgt1omdsZ5eyo8DobkufsCoQYok/rhfLc2aB0BlznD0fgHq5U0Y9hqtn4R0XIpGdwqofPQEBS1AxjZUZs1tJOzJYoJzAJOE5fb9phqF747Tj8mxVwJ1corCxGXU/o93UGKYXnLJ3UcKsRDa11iMyxqhrhpgcmTQKBgQCd5E8bORZDQ35E74524bdvS1I6eF3abM8g0j2/QpibY/ZQ4yRE/I8HwfhTEpFNvkRWJf96WucCGzfDKGQ4sX+AIEX1NuF3YxSMpT7NrqkN0yF6vY1ceAuHNuQsa/WqZUf0oUU3mGylFkN4q5kunZTrL3q+vLtTjhWdTl7tHfOgPQKBgQDJILYG3km6ph5iQTdyu0y0/kjVFONzzvwY0h+lXcTLZkuP85bDjVFmz1ucAAM+BrKdLXpsz44ycPkevVWNGwljpU6oV12VI+aMiBuDyfok5iZtIE/+2srzfCqs/UJpPDEJNvmclXjuUkFgatrTQC6MLeXF3iVZgKlW7z8ujO4hFQKBgGgrRt2pDj0WfGoyuoVIaeNtiDS3UQRYoVcAHmjfIRv0GYBIO5egISV3HcSBDYiDLUbBDwrEioBjQKjrLyQQRxRbNoyPxrUjk10vcH326+YJE5+NC4SkVsbAuk1sdMoUxCJre+UwFQ3d4GnunMOah7OawZqxnc2EglIkcJB0IFXpAoGBAJQOexp2znbqB5v/yQKQxUEcmmOZhdyvJor3NI7mNQByWLATTOhL+Y90yGDFd+11KgGhRUZqsv099mNjsRGRuY4X0Dv2P/8JsEKK3pZoVu4P5nW5V9FCzldUrgEJPHF78SLlO0vNPvq4NcoRkuFlrIJ5KC20oi+nNaLbbE2jzhCl
+    notify-url: http://uiw5n3.natappfree.cc/pay/notify
+    return-url: http://localhost:80/pay/return
+    sign-type: RSA2
